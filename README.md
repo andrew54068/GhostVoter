@@ -2,8 +2,6 @@
 
 ## Project Overview
 
-**Project Name:** GhostVoter
-
 **Description:** Unique human votes, total privacy. Ghost Voter ensures vote authenticity while safeguarding anonymity with World ID and Ethereum Attestation Service.
 
 Introducing Ghost Voter: Your Secure and Private Voting Solution
