@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# GhostVoter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+**Project Name:** GhostVoter
 
-In the project directory, you can run:
+**Description:** Unique human votes, total privacy. Ghost Voter ensures vote authenticity while safeguarding anonymity with World ID and Ethereum Attestation Service.
 
-### `npm start`
+Introducing Ghost Voter: Your Secure and Private Voting Solution
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Ghost Voter is a decentralized voting platform that ensures your voice is heard without compromising your privacy. Designed to counter AI sybil bot attacks and guarantee unique human participation, Ghost Voter combines World ID and Ethereum Attestation Service (EAS) for a seamless and secure experience.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+With Ghost Voter, you can easily join discussions and vote on important topics from anywhere in the world. Your identity remains anonymous, and each participant is verified as a real human, preventing unwanted bots or duplicate accounts. World ID establishes your unique identity, while EAS verifies votes and maintains transparency.
 
-### `npm test`
+Our platform enables you to create topics, cast anonymous votes, and even relay concerns without revealing your identity, all while contributing to a decentralized ledger. Say goodbye to biased outcomes and hello to a new era of transparent and accountable decision-making. Join Ghost Voter today and make your voice count, privately and securely.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How it's Made
 
-### `npm run build`
+**Ghost Voter's Creation:** World ID and Ethereum Attestation Service (EAS)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Ghost Voter is crafted using Worldcoin Anonymous Actions, empowering users with limitless signals while nullifier_hash values fend off sybil attacks and enable choice updates. Custom signals efficiently cluster unique choices within an action, preserving anonymity yet facilitating user and vote tracking.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Upon registration triumph, EAS steps in, attesting successful votes. All attestations are conveniently indexed on IPFS, cementing trust and transparency in Ghost Voter's ingenious framework.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+To get started with Ghost Voter, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone the repository: `git clone https://github.com/andrew54068/GhostVoter.git`
+2. Navigate to the project folder: `cd GhostVoter`
+3. Install dependencies: `npm install`
+4. Start the application: `npm start`
