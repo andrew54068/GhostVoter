@@ -2,21 +2,21 @@
 
 ## Project Overview
 
-**Description:** Unique human votes, total privacy. Ghost Voter ensures vote authenticity while safeguarding anonymity with World ID and Ethereum Attestation Service.
+**Description:** Unique human votes, total privacy. GhostVoter ensures vote authenticity while safeguarding anonymity with World ID and Ethereum Attestation Service.
 
-Introducing Ghost Voter: Your Secure and Private Voting Solution
+Introducing GhostVoter: Your Secure and Private Voting Solution
 
-Ghost Voter is a decentralized voting platform that ensures your voice is heard without compromising your privacy. Designed to counter AI sybil bot attacks and guarantee unique human participation, Ghost Voter combines World ID and Ethereum Attestation Service (EAS) for a seamless and secure experience.
+GhostVoter is a decentralized voting platform that ensures your voice is heard without compromising your privacy. Designed to counter AI sybil bot attacks and guarantee unique human participation, Ghost Voter combines World ID and Ethereum Attestation Service (EAS) for a seamless and secure experience.
 
-With Ghost Voter, you can easily join discussions and vote on important topics from anywhere in the world. Your identity remains anonymous, and each participant is verified as a real human, preventing unwanted bots or duplicate accounts. World ID establishes your unique identity, while EAS verifies votes and maintains transparency.
+With GhostVoter, you can easily join discussions and vote on important topics from anywhere in the world. Your identity remains anonymous, and each participant is verified as a real human, preventing unwanted bots or duplicate accounts. World ID establishes your unique identity, while EAS verifies votes and maintains transparency.
 
 Our platform enables you to create topics, cast anonymous votes, and even relay concerns without revealing your identity, all while contributing to a decentralized ledger. Say goodbye to biased outcomes and hello to a new era of transparent and accountable decision-making. Join Ghost Voter today and make your voice count, privately and securely.
 
 ## How it's Made
 
-**Ghost Voter's Creation:** World ID and Ethereum Attestation Service (EAS)
+**GhostVoter's Creation:** World ID and Ethereum Attestation Service (EAS)
 
-Ghost Voter is crafted using Worldcoin Anonymous Actions, empowering users with limitless signals while nullifier_hash values fend off sybil attacks and enable choice updates. Custom signals efficiently cluster unique choices within an action, preserving anonymity yet facilitating user and vote tracking.
+GhostVoter is crafted using Worldcoin Anonymous Actions, empowering users with limitless signals while nullifier_hash values fend off sybil attacks and enable choice updates. Custom signals efficiently cluster unique choices within an action, preserving anonymity yet facilitating user and vote tracking.
 
 Upon registration triumph, EAS steps in, attesting successful votes. All attestations are conveniently indexed on IPFS, cementing trust and transparency in Ghost Voter's ingenious framework.
 
