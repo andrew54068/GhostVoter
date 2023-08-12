@@ -35,7 +35,7 @@ const Vote = ({ openModal, description, index }: VoteTable) => {
         </Button>
 
         <div className={styles.info}>
-          <img src={PROFILE}></img>
+          <img src={PROFILE.src}></img>
           <div>{parsAddress("0x114b242d931b47d5cdcee7af065856f70ee278c4")}</div>
         </div>
       </div>

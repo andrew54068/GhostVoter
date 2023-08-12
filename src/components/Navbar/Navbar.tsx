@@ -28,7 +28,7 @@ const Navbar = () => {
               console.log(account);
             }}
           >
-            <img src={LOGO}></img>
+            <img src={LOGO.src}></img>
           </div>
           <div className={styles.buttons}>
             {/* <div

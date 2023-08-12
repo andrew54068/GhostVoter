@@ -1,1 +1,18 @@
-{}
+{
+  "/_app": "pages/_app.js",
+  "/MainPage/MainPage": "pages/MainPage/MainPage.js",
+  "/admin": "pages/admin.js",
+  "/api-example": "pages/api-example.js",
+  "/api/examples/jwt": "pages/api/examples/jwt.js",
+  "/api/examples/protected": "pages/api/examples/protected.js",
+  "/api/examples/session": "pages/api/examples/session.js",
+  "/client": "pages/client.js",
+  "/": "pages/index.js",
+  "/me": "pages/me.js",
+  "/policy": "pages/policy.js",
+  "/protected": "pages/protected.js",
+  "/_error": "pages/_error.js",
+  "/server": "pages/server.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
+  "/_document": "pages/_document.js"
+}
