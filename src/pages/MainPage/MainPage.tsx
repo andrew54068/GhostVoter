@@ -1,7 +1,6 @@
 import styles from "./MainPage.module.scss";
 import {
   Navbar,
-  AnimatedInfo,
   VoteTable,
   ClaimModal,
   VoteModal,
@@ -65,7 +64,6 @@ const MainPage = () => {
     <>
       <div className={styles.wrapper}>
         <Navbar />
-        <AnimatedInfo />
         <VoteTable openModal={modal.open} />
         {whichModal === WHICHMODAL.CLAIM ? (
           <ClaimModal modal={modal} />

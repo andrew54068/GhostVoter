@@ -1,5 +1,4 @@
 export { HelloWorld } from "./HelloWorld/HelloWorld";
-export { AnimatedInfo } from "./AnimatedInfo/AnimatedInfo";
 export { Navbar } from "./Navbar/Navbar";
 export { VoteTable } from "./VoteTable/VoteTable";
 export { VoteDatas } from "./VoteTable/VoteDatas/VoteDatas";
