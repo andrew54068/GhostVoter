@@ -18,7 +18,7 @@ Our platform enables you to create topics, cast anonymous votes, and even relay 
 
 GhostVoter is crafted using Worldcoin Anonymous Actions, empowering users with limitless signals while nullifier_hash values fend off sybil attacks and enable choice updates. Custom signals efficiently cluster unique choices within an action, preserving anonymity yet facilitating user and vote tracking.
 
-Upon registration triumph, EAS steps in, attesting successful votes. All attestations are conveniently stored on on chain, cementing trust and transparency in Ghost Voter's ingenious framework.
+Upon registration triumph, EAS steps in, attesting successful votes. All attestations are conveniently stored on chain, cementing trust and transparency in Ghost Voter's ingenious framework.
 
 ## Getting Started
 
