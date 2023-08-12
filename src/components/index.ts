@@ -1,4 +1,5 @@
 export { HelloWorld } from "./HelloWorld/HelloWorld";
+export { MainPage } from "./MainPage/MainPage"
 export { Navbar } from "./Navbar/Navbar";
 export { VoteTable } from "./VoteTable/VoteTable";
 export { VoteDatas } from "./VoteTable/VoteDatas/VoteDatas";

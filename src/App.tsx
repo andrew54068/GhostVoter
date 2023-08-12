@@ -1,4 +1,4 @@
-import { MainPage } from "pages";
+import { MainPage } from "components";
 import { useInitialTheme } from "./hooks/useInitialTheme";
 import styles from "./App.module.scss";
 

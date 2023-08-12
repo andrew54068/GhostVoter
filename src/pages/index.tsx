@@ -1,5 +1,5 @@
 import Layout from "../components/layout"
-export { MainPage } from "./MainPage/MainPage";
+// export { MainPage } from "../components/MainPage/MainPage";
 
 export default function IndexPage() {
   return (
