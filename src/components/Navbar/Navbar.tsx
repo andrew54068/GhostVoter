@@ -2,7 +2,7 @@ import styles from "./Navbar.module.scss";
 import { Button } from "ui/Button/Button";
 import { IoMdMoon, IoMdSunny } from "react-icons/io";
 import { useTheme } from "hooks/useTheme";
-import LOGO from "assets/logo2.png";
+import LOGO from "assets/logo.png";
 import { useAccount } from "hooks/useAccount";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
