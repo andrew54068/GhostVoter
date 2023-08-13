@@ -16,6 +16,7 @@ export const DATAS = [
             { title: "Justin Sun", amount: 3 },
             { title: "CZ", amount: 1 },
         ],
+        voterIds: []
     },
     {
         id: "b30a5f14-4a20-4f39-bcbe-675f0d362283",
@@ -25,6 +26,7 @@ export const DATAS = [
             { title: "99", amount: 3 },
             { title: "77", amount: 1 },
         ],
+        voterIds: []
     }
 ];
 
@@ -59,7 +61,7 @@ export const localDataHandler = () => {
             var resultTopics: TopicVotes[] = JSON.parse(existingTopics)
             var topic = resultTopics.find(value => value.id === topicId)
             if (!topic) return false
-            if (topic.voterIds.includes(userId)) return false
+            if (topic.voterIds?.includes(userId)) return false
             return true
         }
         return false
