@@ -38,6 +38,7 @@ export interface TopicVotes {
     id: string;
     title: string;
     options: OptionInfo[];
+    voterIds: string[];
 }
 
 export const localDataHandler = () => {
@@ -52,8 +53,19 @@ export const localDataHandler = () => {
         }
     }
 
+    const canVote = (topicId: string, userId: string) => {
+        let existingTopics = sessionStorage.getItem(TOPIC_KEY)
+        if (existingTopics) {
+            var resultTopics: TopicVotes[] = JSON.parse(existingTopics)
+            var topic = resultTopics.find(value => value.id === topicId)
+            if (!topic) return false
+            if (topic.voterIds.includes(userId)) return false
+            return true
+        }
+        return false
+    }
+
     const getTopics = (): TopicVotes[] => {
-        console.log(`💥 here: `);
         initial()
         let existingTopics = sessionStorage.getItem(TOPIC_KEY)
         if (existingTopics) {
@@ -71,13 +83,15 @@ export const localDataHandler = () => {
             const optionInfos: OptionInfo[] = newTopic.options.map(optionTitle => {
                 return {
                     title: optionTitle,
-                    amount: 0
+                    amount: 0,
+                    userIds: [],
                 }
             })
             resultTopics.push({
                 id: newTopic.id,
                 title: newTopic.title,
-                options: optionInfos
+                options: optionInfos,
+                voterIds: []
             })
             resultString = JSON.stringify(resultTopics)
         } else {
@@ -100,16 +114,18 @@ export const localDataHandler = () => {
         let existingTopics = sessionStorage.getItem(TOPIC_KEY)
         if (existingTopics) {
             var resultTopics: TopicVotes[] = JSON.parse(existingTopics)
-            const topic = resultTopics.find(value => value.id === newVote.topicId)
+            var topic = resultTopics.find(value => value.id === newVote.topicId)
             if (!topic) return
             var newOptions = topic.options
             var option = newOptions.find(option => option.title === newVote.optionTitle)
             if (!option) return
+            if (!canVote(topic.id, newVote.userId)) return
             option.amount = option.amount + 1
             resultTopics.push({
                 id: newVote.topicId,
                 title: topic.title,
-                options: newOptions
+                options: newOptions,
+                voterIds: topic.voterIds.concat([newVote.userId])
             })
             const resultString = JSON.stringify(resultTopics)
             sessionStorage.setItem(TOPIC_KEY, resultString)
@@ -117,6 +133,7 @@ export const localDataHandler = () => {
     }
 
     return {
+        canVote,
         getTopics,
         addNewTopic,
         getOptionsAmountByTopic,

@@ -10,6 +10,7 @@ interface VoteOptionData {
 
 const StyledButton = styled.button`
   position: relative;
+  display: flex;
   width: 80%;
   padding: 20px;
   height: auto;
@@ -30,18 +31,6 @@ const StyledButton = styled.button`
   &:hover {
     cursor: pointer;
   }
-`;
-
-const SelectedBackground = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-
-  background-color: #666666;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-clip: border-box;
 `;
 
 export const TitleText = styled.div`
@@ -67,10 +56,15 @@ const DescText = styled.div`
 `;
 
 const AmountContainer = styled.div`
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
   color: #ffffff;
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  background-color: #444444;
 `;
 
 const VoteOption = ({ text, amount, isSelected, onSelected }: VoteOptionData) => {

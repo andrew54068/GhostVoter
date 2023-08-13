@@ -51,6 +51,8 @@ const TopicBox = ({ topic }: TopicBoxData) => {
   const { data: session, status } = useSession();
   const [selectedOption, setSelectedOption] = useState(-1)
   const topics = useRef([] as TopicVotes[])
+
+  const userId = session?.user?.name ?? ''
   const handler = localDataHandler()
   useEffect(() => {
     topics.current = handler.getTopics()
@@ -82,6 +84,7 @@ const TopicBox = ({ topic }: TopicBoxData) => {
         width={"120px"}
         height="45px"
         fontWeight="fw800"
+        disabled={userId === '' || !handler.canVote(topic.id, userId)}
         onClick={() => {
           const selectedOp = topic.options[selectedOption]
           handler.addNewVote({
@@ -89,6 +92,7 @@ const TopicBox = ({ topic }: TopicBoxData) => {
             topicId: topic.id,
             optionTitle: selectedOp.title
           })
+          topics.current = handler.getTopics()
         }}
       >
         VOTE
