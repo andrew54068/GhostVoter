@@ -1,7 +1,15 @@
 {
   "/_app": "pages/_app.js",
+  "/admin": "pages/admin.html",
+  "/api/examples/jwt": "pages/api/examples/jwt.js",
+  "/api/examples/protected": "pages/api/examples/protected.js",
+  "/api-example": "pages/api-example.html",
+  "/": "pages/index.html",
+  "/api/examples/session": "pages/api/examples/session.js",
+  "/protected": "pages/protected.html",
   "/_error": "pages/_error.js",
+  "/server": "pages/server.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js"
+  "/404": "pages/404.html"
 }

@@ -1,5 +1,3 @@
-import { utils } from "ethers";
-
 export const parseAddress = (address: string) => {
   return (
     address?.substring?.(0, 5) +

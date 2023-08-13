@@ -41,14 +41,15 @@ export interface TopicBoxData {
 // }
 
 const TopicBox = ({ topic }: TopicBoxData) => {
-  const [selectedOption, setSelectedOption] = useState('')
+  const [selectedOption, setSelectedOption] = useState(-1)
   console.log(`💥 topic.options: ${JSON.stringify(topic.options, null, '  ')}`);
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>{topic.title}</div>
       {/* <div className={styles.desc}>{topic.desc}</div> */}
       <div className={styles.options}>
-        {topic.options.map((text: string, i: string) => {
+        
+        {topic.options.map((text: string, i: number) => {
               return (
                 <VoteOption
                   key={i}

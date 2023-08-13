@@ -42,7 +42,7 @@ const Button = ({
         styles.wrapper,
         styles[color],
         styles[textPosition],
-        styles[theme],
+        styles[textPosition],
         disabled && styles.disabled,
         loading && styles.loading,
         className
