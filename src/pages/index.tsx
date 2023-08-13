@@ -4,6 +4,7 @@ import {
   Provider as UrqlProvider,
   fetchExchange,
 } from "urql";
+import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "../components/layout";
 import { MainPage } from "components";
 import { useInitialTheme } from "../hooks/useInitialTheme";
@@ -20,9 +21,11 @@ function App() {
   useInitialTheme();
   return (
     <div className={styles.wrapper}>
-      <UrqlProvider value={client}>
-        <MainPage />
-      </UrqlProvider>
+      <ChakraProvider>
+        <UrqlProvider value={client}>
+          <MainPage />
+        </UrqlProvider>
+      </ChakraProvider>
     </div>
   );
 }

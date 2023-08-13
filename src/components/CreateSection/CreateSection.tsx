@@ -39,14 +39,15 @@ const StyledButton = styled.button`
   background-clip: border-box;
 `;
 
-const CreateSection = () => {
+interface CreateSectionData {
+  onClick: () => void
+}
+
+const CreateSection = ({ onClick }: CreateSectionData) => {
   return (
     <Section>
       <StyledButton
-        onClick={() => {
-          // create new topic here
-          // connectAccount();
-        }}
+        onClick={onClick}
       >
         Create New Topic
       </StyledButton>

@@ -1,11 +1,13 @@
 import { CreateVote, VoteButtons, VoteDatas } from "components";
 import { signIn, signOut, useSession } from "next-auth/react";
 import styles from "./VoteTable.module.scss";
+import { TopicVotes } from "utils/localDataHandler";
 
-// interface VoteTable {
-//   openModal: () => void;
-// }
-const VoteTable = ({ openModal }: any) => {
+interface VoteTableData {
+  latestTopic: TopicVotes;
+}
+const VoteTable = ({ latestTopic }: VoteTableData) => {
+  console.log(`💥 latestTopic: ${JSON.stringify(latestTopic, null, '  ')}`);
   const { data: session, status } = useSession();
   return (
     <div className={styles.wrapper}>
@@ -14,7 +16,7 @@ const VoteTable = ({ openModal }: any) => {
         <CreateVote />
       </div> */}
       <div className={styles.datas}>
-        <VoteDatas openModal={openModal} />
+        <VoteDatas />
       </div>
     </div>
   );

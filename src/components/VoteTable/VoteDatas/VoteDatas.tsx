@@ -1,15 +1,11 @@
 import styles from "./VoteDatas.module.scss";
 import { TopicBox } from "components";
-import { useEffect, useRef, useState } from "react";
-import { DATAS } from "./datas";
-import { Topic } from "../Vote/TopicBox";
+import { useEffect, useRef } from "react";
 import { TopicVotes, localDataHandler } from "utils/localDataHandler";
+import { Topic } from "../Vote/TopicBox";
 
-interface VoteTable {
-  openModal: () => void;
-}
 
-const VoteDatas = ({ openModal }: VoteTable) => {
+const VoteDatas = () => {
   // const [isThereDatas, setIsThereDatas] = useState(true);
   const topics = useRef([] as TopicVotes[])
   useEffect(() => {

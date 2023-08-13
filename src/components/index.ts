@@ -7,7 +7,6 @@ export { VoteDatas } from "./VoteTable/VoteDatas/VoteDatas";
 export { VoteButtons } from "./VoteTable/VoteButtons/VoteButtons";
 export { TopicBox } from "./VoteTable/Vote/TopicBox";
 export { CreateVote } from "./VoteTable/CreateVote/CreateVote";
-export { ClaimModal } from "./Modals/ClaimModal/ClaimModal";
 export { VoteModal } from "./Modals/VoteModal/VoteModal";
 export { Option } from "./Modals/Option/Option";
 export { Opening } from "./Opening/Opening";

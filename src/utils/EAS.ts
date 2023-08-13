@@ -92,7 +92,6 @@ const exec = async () => {
     const tempTopic: Topic = {
         id: "8b3d3a7d-302f-4fd6-957f-0b23738bff05",
         title: "Who should be the next presiden?",
-        desc: "Who do you think the next presiden in crypto?",
         options: ["Vitalik", "Justin Sun", "CZ"]
     }
     const topicEncodeData = generateTopicEncodeData(topicSchema, tempTopic)

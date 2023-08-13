@@ -85,8 +85,7 @@ export const localDataHandler = () => {
             const optionInfos: OptionInfo[] = newTopic.options.map(optionTitle => {
                 return {
                     title: optionTitle,
-                    amount: 0,
-                    userIds: [],
+                    amount: 0
                 }
             })
             resultTopics.push({

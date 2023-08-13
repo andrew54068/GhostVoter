@@ -27,7 +27,6 @@ const Background = styled.div`
 export interface Topic {
   id: string;
   title: string;
-  desc: string;
   options: string[];
 }
 
