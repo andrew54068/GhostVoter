@@ -103,8 +103,7 @@ const MainPage = () => {
     <>
       <div className={styles.wrapper}>
         <Navbar />
-        {!session && <CreateSection onClick={onOpen}/>}
-        {/* {session?.user && <CreateSection onClick={onOpen} />} */}
+        {session?.user && <CreateSection onClick={onOpen} />}
         <VoteTable latestTopic={latestTopic}/>
         <Modal
           blockScrollOnMount={false}

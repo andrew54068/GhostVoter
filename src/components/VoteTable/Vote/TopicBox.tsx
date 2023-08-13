@@ -84,7 +84,6 @@ const TopicBox = ({ topic }: TopicBoxData) => {
         width={"120px"}
         height="45px"
         fontWeight="fw800"
-        // disabled={!handler.canVote(topic.id, userId)}
         disabled={userId === '' || !handler.canVote(topic.id, userId)}
         onClick={() => {
           const selectedOp = topic.options[selectedOption]
