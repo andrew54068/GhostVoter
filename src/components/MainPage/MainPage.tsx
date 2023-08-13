@@ -1,59 +1,17 @@
 import styles from "./MainPage.module.scss";
-import {
-  Navbar,
-  VoteTable,
-  ClaimModal,
-  VoteModal,
-} from "components";
+import { Navbar, VoteTable, CreateSection, VoteModal } from "components";
 import { useModal } from "hooks/useModal";
 import { useEffect, useState } from "react";
-import { useClaim } from "hooks/useClaim";
-import { useSelector } from "react-redux";
-enum WHICHMODAL {
-  "CLAIM",
-  "VOTE",
-}
+import { useSession } from "next-auth/react";
+import { Button } from "ui/Button/Button";
+import styled from "styled-components";
+
 
 const MainPage = () => {
   const modal = useModal();
-  const [whichModal, setWhichModal] = useState<WHICHMODAL>(WHICHMODAL.CLAIM);
+  // const [whichModal, setWhichModal] = useState<WHICHMODAL>(WHICHMODAL.CLAIM);
   const [opening, setOpening] = useState(true);
-  const { balanceOf } = useClaim();
-  const voteModalDatas = useSelector(
-    (state: any) => state.account.voteModalDatas
-  );
-  const account = useSelector(
-    (state: any) => state.account.account
-  );
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await balanceOf(voteModalDatas.index);
-      if (result) {
-        setWhichModal(WHICHMODAL.VOTE);
-      } else {
-        setWhichModal(WHICHMODAL.CLAIM);
-      }
-    };
-
-    fetchData().catch((err: any) => {
-      console.log(err);
-    });
-  }, [modal.isOpen]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await balanceOf(voteModalDatas.index);
-      if (result) {
-        setWhichModal(WHICHMODAL.VOTE);
-      } else {
-        setWhichModal(WHICHMODAL.CLAIM);
-      }
-    };
-
-    fetchData().catch((err: any) => {
-      console.log(err);
-    });
-  }, [account]);
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     setTimeout(() => {
@@ -64,12 +22,14 @@ const MainPage = () => {
     <>
       <div className={styles.wrapper}>
         <Navbar />
+        {!session && <CreateSection/>}
+        {session?.user && <CreateSection/>}
         <VoteTable openModal={modal.open} />
-        {whichModal === WHICHMODAL.CLAIM ? (
+        {/* {whichModal === WHICHMODAL.CLAIM ? (
           <ClaimModal modal={modal} />
         ) : (
-          <VoteModal modal={modal} changer={setWhichModal}/>
-        )}
+          <VoteModal modal={modal} changer={setWhichModal} />
+        )} */}
       </div>
     </>
   );

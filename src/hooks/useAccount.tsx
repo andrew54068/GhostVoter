@@ -1,7 +1,5 @@
-import { useSelector, useDispatch } from "react-redux";
 import { setAccount } from "store/slicers/account";
 export const useAccount = () => {
-  const dispatch = useDispatch();
   const connectAccount = async () => {
     if (window.ethereum) {
       if (window.ethereum.selectedAddress === null) {
@@ -12,9 +10,9 @@ export const useAccount = () => {
             console.log(err.code);
           });
         console.log(accounts);
-        dispatch(setAccount(accounts[0]));
+
       } else {
-        dispatch(setAccount(window.ethereum.selectedAddress));
+
       }
 
       if (window.ethereum.chainId === "0x5") {

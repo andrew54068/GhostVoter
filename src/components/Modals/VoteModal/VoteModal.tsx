@@ -4,7 +4,6 @@ import { Modal, Button } from "ui";
 import { Option } from "components";
 import { useState } from "react";
 import { useVoteContract } from "hooks/useVoteContract";
-import { useSelector } from "react-redux";
 import { Spinner } from "ui/Spinner/Spinner";
 
 const MOCK_PROOF =
@@ -25,9 +24,9 @@ const VoteModal = ({
   const [privacyMsg, setPrivacyMsg] = useState<string>("");
 
   const { voteElection, sendToken } = useVoteContract();
-  const voteModalDatas = useSelector(
-    (state: any) => state.account.voteModalDatas
-  );
+  // const voteModalDatas = useSelector(
+  //   (state: any) => state.account.voteModalDatas
+  // );
 
   const onGetPrivacy = () => {
     const endLoading = (msg: string) => () => {
@@ -42,7 +41,7 @@ const VoteModal = ({
 
   return (
     <Modal isOpen={modal.isOpen} close={modal.close} className={styles.wrapper}>
-      <div className={styles.description}>{voteModalDatas.description}</div>
+      {/* <div className={styles.description}>{voteModalDatas.description}</div>
       <div className={styles.candidates}>
         {voteModalDatas.options.map((data: any, i: number) => {
           return (
@@ -55,7 +54,7 @@ const VoteModal = ({
             />
           );
         })}
-      </div>
+      </div> */}
 
       <div className={styles.warning}>You have a vote token to claim!</div>
 
@@ -67,7 +66,7 @@ const VoteModal = ({
           height="45px"
           fontWeight="fw800"
           onClick={() => {
-            voteElection(voteModalDatas.index, selected); // update params
+            // voteElection(voteModalDatas.index, selected); // update params
           }}
         >
           Send Vote

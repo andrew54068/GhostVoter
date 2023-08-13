@@ -1,15 +1,30 @@
-import Layout from "../components/layout"
-// export { MainPage } from "../components/MainPage/MainPage";
+// import Header from "./header";
+import {
+  Client as UrqlClient,
+  Provider as UrqlProvider,
+  fetchExchange,
+} from "urql";
+import Layout from "../components/layout";
+import { MainPage } from "components";
+import { useInitialTheme } from "../hooks/useInitialTheme";
+import styles from "../App.module.scss";
 
-export default function IndexPage() {
+const client = new UrqlClient({
+  // TODO: set env file for graphql endpoint
+  url: "https://easscan.org/graphql/playground",
+  exchanges: [fetchExchange],
+  requestPolicy: "network-only", // disable cache
+});
+
+function App() {
+  useInitialTheme();
   return (
-    <Layout>
-      <h1>NextAuth.js Example</h1>
-      <p>
-        This is an example site to demonstrate how to use{" "}
-        <a href="https://next-auth.js.org">NextAuth.js</a> with {" "}
-        <a href ="https://worldcoin.org/world-id">World ID</a> for authentication.
-      </p>
-    </Layout>
-  )
+    <div className={styles.wrapper}>
+      <UrqlProvider value={client}>
+        <MainPage />
+      </UrqlProvider>
+    </div>
+  );
 }
+
+export default App;

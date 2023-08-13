@@ -1,27 +1,16 @@
 export const DATAS = [
   {
-    index: 0,
-    description: "Where should Devcon be held next year?",
+    id: "74f4bd0b-d04d-419e-a8a6-d0e1f31cfc1d",
+    title: "Where should Devcon be held next year?",
+    desc: "asjdlfkjfooewf",
+    timestamp: "",
     options: ["#DevconIstanbul", "#DevconIstanbul", "#DevconIstanbul"],
   },
   {
-    index: 1,
-    description: "How many ball are there in the ball pool?",
+    id: "b30a5f14-4a20-4f39-bcbe-675f0d362283",
+    title: "How many ball are there in the ball pool?",
+    desc: "a;skjf;askjdf",
+    timestamp: "",
     options: ["23445", "27289", "24421"],
-  },
-  {
-    index: 2,
-    description: "Which one of your favourite number?",
-    options: ["2", "3", "6", "7", "9"],
-  },
-  {
-    index: 3,
-    description: "What do you think?",
-    options: ["PoW ETH", "PoS ETH"],
-  },
-  {
-    index: 4,
-    description: "Which one of your favorite blockchain?",
-    options: ["Ethereum", "Avalanche", "Polkadot", "Solana","Polygon","Cosmos"],
-  },
+  }
 ];

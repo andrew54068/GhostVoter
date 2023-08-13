@@ -1,64 +1,81 @@
 import styles from "./Navbar.module.scss";
 import { Button } from "ui/Button/Button";
-import { IoMdMoon, IoMdSunny } from "react-icons/io";
-import { useTheme } from "hooks/useTheme";
+// import { IoMdMoon, IoMdSunny } from "react-icons/io";
+// import { useTheme } from "hooks/useTheme";
 import LOGO from "assets/logo.png";
-import { useAccount } from "hooks/useAccount";
-import { useSelector } from "react-redux";
-import { RootState } from "store";
-import { useEffect } from "react";
-import { parseAddress } from "utils/parseAddress";
+// import { useAccount } from "hooks/useAccount";
+// import { RootState } from "store";
+// import { useEffect } from "react";
+// import { parseAddress } from "utils/parseAddress";
+
+import Link from "next/link";
+import { signIn, signOut, useSession } from "next-auth/react";
+// import styles from "../header.module.css";
 
 const Navbar = () => {
-  const { connectAccount } = useAccount();
-  const account = useSelector((state: RootState) => state.account.account);
-  useEffect(() => {
-    if (window.ethereum.selectedAddress !== null) {
-      connectAccount();
-    }
-  }, []);
+  const { data: session, status } = useSession();
+  const loading = status === "loading";
 
   return (
     <>
       <div className={styles.wrapper}>
         <div className={styles.app}>
-          <div
-            className={styles.logo}
-            onClick={() => {
-              console.log(account);
-            }}
-          >
+          <div className={styles.logo} onClick={() => {}}>
             <img src={LOGO.src}></img>
           </div>
-          <div className={styles.buttons}>
-            {/* <div
-              className={styles.themeChanger}
-              onClick={toggleTheme}
-              style={
-                theme === "light" ? { color: "#363853" } : { color: "white" }
-              }
+          <div> 
+          {/* className={styles.signedInStatus}> */}
+            <p
+              className={`nojs-show ${
+                !session && loading ? styles.loading : styles.loaded
+              }`}
             >
-              <div className={styles.themeChanger}>
-                {theme === "dark" ? (
-                  <IoMdMoon size={22} />
-                ) : (
-                  <IoMdSunny size={22} />
-                )}
-              </div>
-            </div> */}
-            <Button
-              className={styles.swap}
-              color={"lightGreen"}
-              style={{ borderRadius: "5px" }}
-              width={"170px"}
-              height="45px"
-              fontWeight="fw400"
-              onClick={() => {
-                connectAccount();
-              }}
-            >
-              {account ? parseAddress(account) : "Connect Wallet"}
-            </Button>
+              {!session && (
+                <>
+                  <span className={styles.notSignedInText}>
+                    You are not signed in
+                  </span>
+                  <a
+                    href={`/api/auth/signin`}
+                    className={styles.buttonPrimary}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      signIn("worldcoin"); // when worldcoin is the only provider
+                      // signIn() // when there are multiple providers
+                    }}
+                  >
+                    Sign in With World id
+                  </a>
+                </>
+              )}
+              {session?.user && (
+                <>
+                  {session.user.image && (
+                    <span
+                      style={{
+                        backgroundImage: `url('${session.user.image}')`,
+                      }}
+                      className={styles.avatar}
+                    />
+                  )}
+                  <span className={styles.signedInText}>
+                    <small>Signed in as</small>
+                    <br />
+                    <strong>{session.user.email ?? session.user.name}</strong>
+                  </span>
+                  <a
+                    href={`/api/auth/signout`}
+                    className={styles.button}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      signOut();
+                    }}
+                  >
+                    Sign out
+                  </a>
+                </>
+              )}
+            </p>
           </div>
         </div>
       </div>

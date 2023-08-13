@@ -3,22 +3,19 @@ import { ModalController } from "hooks/useModal";
 import { Modal, Button } from "ui";
 import { Option } from "components";
 import { useEffect, useState } from "react";
-import { useClaim } from "hooks/useClaim";
-import { useSelector } from "react-redux";
 const ClaimModal = ({ modal }: { modal: ModalController }) => {
   const [selected, setSelected] = useState<number>(0);
   const [claimer, setClaimer] = useState<boolean>(false);
   const [isWhiteListed, setIsWhiteListed] = useState(true);
-  const { claim, isClaimer } = useClaim();
-  const account = useSelector((state: any) => state.account.account);
-  const isWL = useSelector((state: any) => state.account.isWhiteListed);
-  const voteModalDatas = useSelector(
-    (state: any) => state.account.voteModalDatas
-  );
+  // const account = useSelector((state: any) => state.account.account);
+  // const isWL = useSelector((state: any) => state.account.isWhiteListed);
+  // const voteModalDatas = useSelector(
+  //   (state: any) => state.account.voteModalDatas
+  // );
 
   return (
     <Modal isOpen={modal.isOpen} close={modal.close} className={styles.wrapper}>
-      <div className={styles.description}>{voteModalDatas.description}</div>
+      {/* <div className={styles.description}>{voteModalDatas.description}</div>
       <div className={styles.candidates}>
         {voteModalDatas.options.map((data: any, i: number) => {
           return (
@@ -31,12 +28,12 @@ const ClaimModal = ({ modal }: { modal: ModalController }) => {
             />
           );
         })}
-      </div>
+      </div> */}
 
       <div className={styles.warning}>
-        {isWL
+        {/* {isWL
           ? "You have a vote token to claim!"
-          : " you do not have the right to vote token!"}
+          : " you do not have the right to vote token!"} */}
       </div>
 
       <div className={styles.buttons}>
@@ -47,7 +44,7 @@ const ClaimModal = ({ modal }: { modal: ModalController }) => {
           height="45px"
           fontWeight="fw800"
           onClick={() => {
-            claim(voteModalDatas.index);
+
           }}
         >
           Claim

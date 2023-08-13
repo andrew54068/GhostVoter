@@ -1,10 +1,11 @@
 export { HelloWorld } from "./HelloWorld/HelloWorld";
+export { CreateSection } from "./CreateSection/CreateSection"
 export { MainPage } from "./MainPage/MainPage"
 export { Navbar } from "./Navbar/Navbar";
 export { VoteTable } from "./VoteTable/VoteTable";
 export { VoteDatas } from "./VoteTable/VoteDatas/VoteDatas";
 export { VoteButtons } from "./VoteTable/VoteButtons/VoteButtons";
-export { Vote } from "./VoteTable/Vote/Vote";
+export { TopicBox } from "./VoteTable/Vote/TopicBox";
 export { CreateVote } from "./VoteTable/CreateVote/CreateVote";
 export { ClaimModal } from "./Modals/ClaimModal/ClaimModal";
 export { VoteModal } from "./Modals/VoteModal/VoteModal";
