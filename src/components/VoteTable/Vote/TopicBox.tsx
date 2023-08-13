@@ -49,22 +49,23 @@ export interface TopicBoxData {
 
 const TopicBox = ({ topic }: TopicBoxData) => {
   const { data: session, status } = useSession();
+  const [optionInfos, setOptionInfos] = useState(topic.options);
   const [selectedOption, setSelectedOption] = useState(-1)
-  const topics = useRef([] as TopicVotes[])
 
   const userId = session?.user?.name ?? ''
   const handler = localDataHandler()
   useEffect(() => {
-    topics.current = handler.getTopics()
-  }, [handler]);
-  console.log(`💥 topic.options: ${JSON.stringify(topic.options, null, '  ')}`);
+    // setTopics(handler.getTopics())
+    setOptionInfos(handler.getOptionsAmountByTopic(topic.id))
+  }, []);
+
+  console.log(`💥 topic.options: ${JSON.stringify(optionInfos, null, '  ')}`);
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>{topic.title}</div>
-      {/* <div className={styles.desc}>{topic.desc}</div> */}
       <div className={styles.options}>
         
-        {topic.options.map((info: OptionInfo, i: number) => {
+        {optionInfos.map((info: OptionInfo, i: number) => {
               return (
                 <VoteOption
                   key={i}
@@ -84,6 +85,7 @@ const TopicBox = ({ topic }: TopicBoxData) => {
         width={"120px"}
         height="45px"
         fontWeight="fw800"
+        // disabled={!handler.canVote(topic.id, userId)}
         disabled={userId === '' || !handler.canVote(topic.id, userId)}
         onClick={() => {
           const selectedOp = topic.options[selectedOption]
@@ -92,7 +94,7 @@ const TopicBox = ({ topic }: TopicBoxData) => {
             topicId: topic.id,
             optionTitle: selectedOp.title
           })
-          topics.current = handler.getTopics()
+          setOptionInfos(handler.getOptionsAmountByTopic(topic.id))
         }}
       >
         VOTE
