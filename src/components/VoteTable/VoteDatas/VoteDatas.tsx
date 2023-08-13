@@ -1,8 +1,9 @@
 import styles from "./VoteDatas.module.scss";
 import { TopicBox } from "components";
-// import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DATAS } from "./datas";
 import { Topic } from "../Vote/TopicBox";
+import { TopicVotes, localDataHandler } from "utils/localDataHandler";
 
 interface VoteTable {
   openModal: () => void;
@@ -10,14 +11,15 @@ interface VoteTable {
 
 const VoteDatas = ({ openModal }: VoteTable) => {
   // const [isThereDatas, setIsThereDatas] = useState(true);
-  // useEffect(() => {
-  //   if (voteDatas !== null) {
-  //     setIsThereDatas(true);
-  //   }
-  // }, [voteDatas]);
+  const topics = useRef([] as TopicVotes[])
+  useEffect(() => {
+    const handler = localDataHandler()
+    topics.current = handler.getTopics()
+  }, []);
+
   return (
     <div className={styles.wrapper}>
-      {DATAS.map((data: Topic, i: number) => {
+      {topics.current.map((data: TopicVotes, i: number) => {
             return (
               <TopicBox
                 key={i}

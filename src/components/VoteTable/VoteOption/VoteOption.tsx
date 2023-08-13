@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 interface VoteOptionData {
   text: string;
+  amount: number;
   isSelected: boolean;
   onSelected: () => void;
 }
@@ -65,12 +66,20 @@ const DescText = styled.div`
   text-align: center;
 `;
 
-const VoteOption = ({ text, isSelected, onSelected }: VoteOptionData) => {
+const AmountContainer = styled.div`
+  color: #ffffff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+`;
+
+const VoteOption = ({ text, amount, isSelected, onSelected }: VoteOptionData) => {
   const backgrounColor = isSelected ? "#555555" : "#222222"
   return (
     <StyledButton onClick={onSelected} style={{backgroundColor: backgrounColor}}>
       {/* {isSelected && <SelectedBackground />} */}
       <DescText>{text}</DescText>
+      <AmountContainer>{amount}</AmountContainer>
     </StyledButton>
   );
 };

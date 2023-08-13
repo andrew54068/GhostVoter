@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { Button } from "ui/Button/Button";
 import { parsAddress } from "utils/parsAddress";
 import { VoteOption } from '../VoteOption/VoteOption'
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { OptionInfo, TopicVotes, localDataHandler } from "utils/localDataHandler";
+import { useSession } from "next-auth/react";
 
 const Background = styled.div`
   width: 100%;
@@ -26,12 +28,17 @@ export interface Topic {
   id: string;
   title: string;
   desc: string;
-  timestamp: string;
   options: string[];
 }
 
+export interface Vote {
+  userId: string;
+  topicId: string;
+  optionTitle: string;
+}
+
 export interface TopicBoxData {
-  topic: Topic
+  topic: TopicVotes
 }
 
 // interface VoteTable {
@@ -41,7 +48,13 @@ export interface TopicBoxData {
 // }
 
 const TopicBox = ({ topic }: TopicBoxData) => {
+  const { data: session, status } = useSession();
   const [selectedOption, setSelectedOption] = useState(-1)
+  const topics = useRef([] as TopicVotes[])
+  const handler = localDataHandler()
+  useEffect(() => {
+    topics.current = handler.getTopics()
+  }, [handler]);
   console.log(`💥 topic.options: ${JSON.stringify(topic.options, null, '  ')}`);
   return (
     <div className={styles.wrapper}>
@@ -49,11 +62,12 @@ const TopicBox = ({ topic }: TopicBoxData) => {
       {/* <div className={styles.desc}>{topic.desc}</div> */}
       <div className={styles.options}>
         
-        {topic.options.map((text: string, i: number) => {
+        {topic.options.map((info: OptionInfo, i: number) => {
               return (
                 <VoteOption
                   key={i}
-                  text={text}
+                  text={info.title}
+                  amount={info.amount}
                   isSelected={selectedOption === i}
                   onSelected={() => {
                     setSelectedOption(i)
@@ -69,9 +83,12 @@ const TopicBox = ({ topic }: TopicBoxData) => {
         height="45px"
         fontWeight="fw800"
         onClick={() => {
-          // sessionStorage.setItem("topic", [])
-          
-          // openModal();
+          const selectedOp = topic.options[selectedOption]
+          handler.addNewVote({
+            userId: session?.user?.name ?? '',
+            topicId: topic.id,
+            optionTitle: selectedOp.title
+          })
         }}
       >
         VOTE
