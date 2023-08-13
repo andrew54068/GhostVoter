@@ -123,12 +123,8 @@ export const localDataHandler = () => {
             if (!option) return
             if (!canVote(topic.id, newVote.userId)) return
             option.amount = option.amount + 1
-            resultTopics.push({
-                id: newVote.topicId,
-                title: topic.title,
-                options: newOptions,
-                voterIds: topic.voterIds.concat([newVote.userId])
-            })
+            topic.options = newOptions
+            topic.voterIds = topic.voterIds.concat([newVote.userId])
             const resultString = JSON.stringify(resultTopics)
             sessionStorage.setItem(TOPIC_KEY, resultString)
         }

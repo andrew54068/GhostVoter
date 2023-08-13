@@ -25,7 +25,7 @@ const MainPage = () => {
     <>
       <div className={styles.wrapper}>
         <Navbar />
-        {/* {!session && <CreateSection/>} */}
+        {!session && <CreateSection/>}
         {session?.user && <CreateSection/>}
         <VoteTable openModal={modal.open} />
         {/* {whichModal === WHICHMODAL.CLAIM ? (
